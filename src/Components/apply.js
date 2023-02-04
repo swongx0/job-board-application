@@ -15,12 +15,10 @@ function Apply() {
       .then(res => res.json())
       .then(job_info => {
         setJob(job_info.data.attributes);
-        console.log(job_info.data.attributes);
       })
   }
   useEffect(() => {
     update();
-    console.log(job);
   }, [])
 
   const submit = async () => {
@@ -46,35 +44,34 @@ function Apply() {
 }
 
   return (
-    <div className="job2">
-        <div className="details">
-            <img src='https://super-static-assets.s3.amazonaws.com/e7c0f16c-8bd3-4c76-8075-4c86f986e1b2/uploads/favicon/9c68ae10-0a8a-4e3f-9084-3625b19df9cb.png' style={{width:'80px', height:'80px',border:'3px solid pink',marginLeft:'40px',marginTop:'18px',borderRadius:'10px',marginLeft:'44%'}}/>
+    <div className=" bg-white p-5 rounded-lg mt-4">
+        <div className="apply-content">
+            <img src='https://super-static-assets.s3.amazonaws.com/e7c0f16c-8bd3-4c76-8075-4c86f986e1b2/uploads/favicon/9c68ae10-0a8a-4e3f-9084-3625b19df9cb.png' style={{width:'80px', height:'80px',marginLeft:'40px',marginTop:'18px',borderRadius:'10px',marginLeft:'44%'}}/>
             <div>
-                <center><span className="span1_"><b>{job.JobPosition}</b></span>
-                <span className="span1_">{job.Location}</span>
-                <span>{job.JobDescription} </span>
+                <center><span className="block"><b>{job.JobPosition}</b></span>
+                <span className="block">{job.Location}</span>
+                <span className='block mb-2'>{job.JobDescription} </span>
                 </center>
                 <div>
-                    <span><b>{job.Experience}</b></span> <br/><br/>
-                    <span><b>Category : {job.Category}</b></span> <br/><br/>
-                    <span><b>Company : {job.Agency}</b></span> 
+                    <span className='block mb-2'><b>Experience Required: {job.Experience}</b></span>
+                    <span className='block mb-2'><b>Category : {job.Category}</b></span>
+                    <span className='block mb-2'><b>Company : {job.Agency}</b></span> 
                 </div>
             </div>
             <h4>Application form</h4>
-            <form action="">
-                <div className="form-group">
+            <form action="submit">
+                <div className="form-group mb-2">
                     <input type="text" onChange={(event) => setFullname(event.target.value)} className="form-control" placeholder="Enter Fullname" style={{borderRadius:'10px'}} id="usr"/>
-                </div> <br/>
-                <div className="form-group">
+                </div>
+                <div className="form-group mb-2">
                     <input type="email" onChange={(event) => setEmail(event.target.value)} className="form-control" placeholder="Enter Email Address" style={{borderRadius:'10px'}} id="usr"/>
-                </div><br/>
-                <div className="form-group">
+                </div>
+                <div className="form-group mb-2">
                     <input type="url" onChange={(event) => setLink(event.target.value)} className="form-control" placeholder="Link to  Your Portfolio" style={{borderRadius:'10px'}} id="usr"/>
-                </div><br/>
-                <div className="form-group">
-                    <textarea name="" onChange={(event) => setMessage(event.target.value)} className="form-control"  rows="6" placeholder="Tell us more about you and your experience" style={{borderRadius:'10px'}}></textarea>
-                    <br/>
-                    <input type="button" onClick={() => submit()} className="form-control" value="Submit" />
+                </div>
+                <div className="form-group mb-2">
+                    <textarea name="" onChange={(event) => setMessage(event.target.value)} className="form-control mb-2"  rows="6" placeholder="Tell us more about you and your experience" style={{borderRadius:'10px'}}></textarea>
+                    <input type="button" onClick={() => submit()} className="flex rounded-md button-color text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 px-3 py-2 text-white" value="Submit"/>
                 </div>
             </form>
         </div>

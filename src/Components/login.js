@@ -9,7 +9,6 @@ export default function Expenses() {
    const [auth, setAuth] = useState('');
    const [Email, setEmail] = useState('test@gmail.com');
    const [Password, setPassword] = useState('pass123');
-   const [submit, setsubmit] = useState();
    const update = async () => {
 
         const requestOptions = {
@@ -48,8 +47,7 @@ export default function Expenses() {
           </div>
         </form>
       </div>
-      <div className='login-background py-2'>
-      </div>
+      <div className='login-background py-2'/>
       </div>
    );
 }
