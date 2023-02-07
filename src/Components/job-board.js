@@ -28,20 +28,20 @@ export default function JobBoard() {
         <NavBar />
     </div>
     <div className='container grid grid-flow-row sm:grid-flow-col gap-3'>
-      <div class="flex p-6 items-center filter">
+      <div className="flex p-6 items-center filter">
         <button className="filter-text mx-2">Filter</button><br />
           <form className="inline-flex" method="get">
-            <input type="radio" onChange={(event) => setSearch(event.target.value.toLowerCase())}  name="c" value="" />
-            <label>All Jobs</label><br />
+            <input type="radio" onChange={(event) => setSearch(event.target.value.toLowerCase())}  name="c" value="all" />
+            <label>All Jobs</label>
             <input type="radio" name="c" value="Backend" onChange={(event) => setSearch(event.target.value.toLowerCase())}  />
-            <label>Backend</label><br />
+            <label>Backend</label>
             <input type="radio" name="c" value="Frontend" onChange={(event) => setSearch(event.target.value.toLowerCase())} />
-            <label>Frontend</label><br />
+            <label>Frontend</label>
             <input type="radio" name="c" value="Internship" onChange={(event) => setSearch(event.target.value.toLowerCase())} />
             <label>Internship</label>
           </form>
       </div>
-      <div class="flex items-center sm:col-span-4">
+      <div className="flex items-center sm:col-span-4">
         <input type="text" className='form-control mx-2 border rounded-md border-slate-300' placeholder="Search Job..." value={search} onChange={(event) => setSearch(event.target.value.toLowerCase())} />
       </div>
     </div>      

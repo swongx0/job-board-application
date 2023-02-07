@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Lato&display=swap');
-
 .logo {
   font-family: 'Arvo', serif;
 }
 
 .hero-section {
   font-family: 'Arvo', serif;
+  max-width: 65%;
 }
 
 .button-color {
