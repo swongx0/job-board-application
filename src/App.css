@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Lato&display=swap');
+
 .logo {
   font-family: 'Arvo', serif;
+}
+
+.home-cover {
+  height: 100vh;
 }
 
 .hero-section {
@@ -40,4 +45,25 @@
 .filter-text {
   font-size: 18px;
   font-weight: 500;
+}
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.7);	
+  bottom: 0;
+	left: 0;
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1;
+}
+
+.modal-container {
+  background: #fff;
+	border-radius: 5px;
+	max-width: 100%;
+	margin: 50px auto;
+	padding: 15px;
+	width: 560px;
+  z-index: 1;
 }

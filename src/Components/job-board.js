@@ -26,7 +26,7 @@ export default function JobBoard() {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <NavBar />
-    </div>
+      </div>
     <div className='container grid grid-flow-row sm:grid-flow-col gap-3'>
       <div className="flex p-6 items-center filter">
         <button className="filter-text mx-2">Filter</button><br />
