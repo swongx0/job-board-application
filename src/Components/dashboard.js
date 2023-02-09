@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Navigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import NavBar from './navbar'
 import CreateJob from './create-job';
 
-export default function Dashboard() {
+export default function Dashboard({closeModal}) {
    const [Applicant, setApplicants] = useState([]);
    const [openJob, setOpenJob] = useState([])
    const [openModal, setOpenModal] = useState(false);
@@ -67,15 +66,14 @@ export default function Dashboard() {
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"></link>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
             <NavBar />
-            <div className="logout-menu">
-              <Link to="/">Logout</Link>
-            </div>
           </div>
           <div className="job-list-container">
-            {openModal ? <CreateJob /> : null}
+            {openModal ? <CreateJob closeModal={toggleModal} /> : null}
             <div className="job-list">
-              <span className='login-header'>Open Positions</span>
-              <button className='add-job inline-flex mx-3 rounded-md button-color text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 px-3 py-2 text-white' onClick={toggleModal}>Add New Job</button>
+              <div className='flex'>
+                <span className='login-header'>Open Positions</span>
+                <button className='add-job self-center inline-block mx-3 rounded-md button-color text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 px-3 py-2 text-white' onClick={toggleModal}>Add New Job</button>
+              </div>
               <hr />
               {
                 openJob.map((list, i) => {
@@ -108,7 +106,7 @@ export default function Dashboard() {
                             {list.attributes.Message}
                           </textarea>
                           <center>
-                            <a target={"_blank"} href={list.attributes.Portfolio_Link}>View Portfolio</a> <br />
+                            <a target="_blank" href={list.attributes.Portfolio_Link}>View Portfolio</a> <br />
                             <button className="btn-success" onClick={() => approveApplicant(list.id)} >Approve</button>
                             <button className="btn-danger" onClick={() => removeApplicant(list.id)}>Decline</button>
                           </center>
